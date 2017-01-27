@@ -15,9 +15,15 @@ public class Test {
                 new InputStreamReader(oracle.openStream()));
 
         String inputLine;
-        while ((inputLine = in.readLine()) != null)
-            System.out.println(inputLine);
-        inputLine.contains("<a");
+        while ((inputLine = in.readLine()) != null) {
+            //System.out.println(inputLine);
+            if (inputLine.contains("<a")) {
+                int start = inputLine.indexOf("<a");
+                int stop = inputLine.indexOf("a>", start+9);
+                String link = inputLine.substring(start+9, stop);
+                System.out.println(link);
+            }
+        }
         in.close();
 
     }
